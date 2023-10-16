@@ -1,0 +1,29 @@
+html{
+    font-size: 62.5%;
+}
+.layout{
+    display: flex;
+}
+.icon{
+    width: 10rem;
+    height: 10rem;
+    background-color: blue;
+    border-radius: 1rem;
+    color: red;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; cach lam theo kieu position */
+}
+ /* ham calc de chinh layot cho chuan */
+.layout p {
+    width: calc(100% - 10rem);
+}
+/* cach lam theo kieu position
+.icon i {
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%)
+} */

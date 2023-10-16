@@ -1,0 +1,67 @@
+html{
+    font-size: 62.5%;
+}
+p{
+    font-size: 1.2rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.boxed{
+    width: 10rem;
+    height: 10rem;
+    background-color: red;
+    position: absolute;
+    /* khi biết chiều dài chiều rộng của thẻ cha */
+    /* top: 10rem;
+    left: 10rem; */
+
+    /* center width height */
+    /* left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%); */
+    /* right: 50%;
+    bottom: 50%;    
+    transform: translate(50%,50%); */
+    
+    /* center theo chieu ngang */
+    /* left: 50%;
+    transform: translateX(-50%); */
+
+    /* center theo chieu doc */
+    /* top: 50%;
+    transform: translateY(-50%); */
+
+    /* overplay all */
+    /* top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; */
+    /* top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto; */
+
+    /* overplay theo chieu ngang */
+    /* top:0;
+    left: 0; */
+    /* cach 1 */
+    /* width: 100%; */
+    /* cach 2 */
+    /* right: 0;
+    width: auto; */
+
+    /* overplay theo chieu doc */
+    top: 0;
+    height: 100%;
+    z-index: 2;
+
+}
+.wrap{
+    position: relative;
+    width: 100%;
+    height: 50rem;
+    background-color: black;
+}

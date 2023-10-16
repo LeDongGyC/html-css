@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  height: 2000px;
+  width: 100%;
+}
+:root {
+  --spacing: 3rem;
+}
+ul li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+.image_list {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  margin: 5rem 0 0 -3rem;
+}
+.image_item {
+  width: calc((100% / 3) - var(--spacing));
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<html>
+<head>
+  <title>Chọn, hiển thị và xóa nhiều ảnh</title>
+  <style>
+    #file-input-container {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    #file-input-container input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    #file-input-container .upload-icon {
+      margin-right: 8px;
+    }
+    #image-preview {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid #ccc;
+      /* width: 50px; */
+      padding: 10px;
+    }
+    .preview-image {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      position: relative;
+    }
+    .preview-image.selected {
+      border: 2px solid blue;
+    }
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .loading-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-top-color: #333;
+      border-radius: 50%;
+      animation: spin 1s infinite ease-in-out;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="file-input-container">
+    <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+    <input type="file" id="image-input" multiple>
+  </div>
+  <div id="image-preview"></div>
+  <button id="delete-selected-button">Xóa đã chọn</button>
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <script>
+    const inputElement = document.getElementById("image-input");
+    const imagePreview = document.getElementById("image-preview");
+    const deleteSelectedButton = document.getElementById("delete-selected-button");
+    const loadingOverlay = document.querySelector(".loading-overlay");
+
+    inputElement.addEventListener("change", function(event) {
+      const files = event.target.files;
+
+      showLoadingOverlay();
+
+      setTimeout(function() {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const imageURL = URL.createObjectURL(file);
+
+          const imgElement = document.createElement("img");
+          imgElement.src = imageURL;
+          imgElement.classList.add("preview-image");
+
+          imgElement.addEventListener("click", function() {
+            imgElement.classList.toggle("selected");
+          });
+
+          const imageContainer = document.createElement("div");
+          imageContainer.appendChild(imgElement);
+
+          imagePreview.appendChild(imageContainer);
+        }
+
+        hideLoadingOverlay();
+      }, 2000);
+    });
+
+    deleteSelectedButton.addEventListener("click", function() {
+      const selectedImages = document.querySelectorAll(".preview-image.selected");
+
+      selectedImages.forEach(function(image) {
+        const imageContainer = image.parentNode;
+        imageContainer.remove();
+      });
+    });
+
+    function showLoadingOverlay() {
+      loadingOverlay.classList.add("show");
+    }
+
+    function hideLoadingOverlay() {
+      loadingOverlay.classList.remove("show");
+    }
+  </script>
+</body>
+</html>

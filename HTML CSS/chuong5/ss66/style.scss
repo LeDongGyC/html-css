@@ -1,0 +1,62 @@
+$color: #ffa400;
+html {
+  font-size: 62.5%;
+}
+// p{
+//     font-size: 1.6rem;
+//
+//     color:$color ;
+// }
+.header {
+  &-top {
+    color: red;
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    &:hover {
+      color: yellow;
+      font-size: 20px;
+    }
+  }
+  &-content {
+    font-size: 5rem;
+  }
+}
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin bg($color: black) {
+  background-color: $color;
+}
+@mixin absoclute($direction: "left") {
+  position: absolute;
+  @if $direction== "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $direction=="left" {
+    left: 50%;
+    transform: translateX(-50%);  
+  }
+  @if $direction == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.boxed {
+  @include size(10rem, 10rem);
+  @include bg(red);
+}
+
+.container {
+  width: 100%;
+  height: 30rem;
+  background: black;
+  position: relative;
+  .boxing {
+    @include size(10rem, 10rem);
+    @include bg(white);
+    @include absoclute("both");
+  }
+}

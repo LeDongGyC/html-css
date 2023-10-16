@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chọn, hiển thị và xóa nhiều ảnh</title>
+  <style>
+    #image-preview {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .preview-image {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      position: relative;
+    }
+    .preview-image.selected {
+      border: 2px solid blue;
+    }
+    .delete-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="image-input" multiple>
+  <div id="image-preview"></div>
+  <button id="delete-selected-button">Xóa đã chọn</button>
+
+  <script>
+    const inputElement = document.getElementById("image-input");
+    const imagePreview = document.getElementById("image-preview");
+    const deleteSelectedButton = document.getElementById("delete-selected-button");
+
+    inputElement.addEventListener("change", function(event) {
+      const files = event.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const imageURL = URL.createObjectURL(file);
+
+        const imgElement = document.createElement("img");
+        imgElement.src = imageURL;
+        imgElement.classList.add("preview-image");
+
+        imgElement.addEventListener("click", function() {
+          imgElement.classList.toggle("selected");
+        });
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "Xóa";
+        deleteButton.classList.add("delete-button");
+
+        const imageContainer = document.createElement("div");
+        imageContainer.appendChild(imgElement);
+        imageContainer.appendChild(deleteButton);
+
+        imagePreview.appendChild(imageContainer);
+      }
+    });
+
+    deleteSelectedButton.addEventListener("click", function() {
+      const selectedImages = document.querySelectorAll(".preview-image.selected");
+
+      selectedImages.forEach(function(image) {
+        const imageContainer = image.parentNode;
+        imageContainer.remove();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chọn và hiển thị nhiều ảnh</title>
+  <style>
+    #image-preview {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .preview-image {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="image-input" multiple>
+  <div id="image-preview"></div>
+
+  <script>
+    const inputElement = document.getElementById("image-input");
+    const imagePreview = document.getElementById("image-preview");
+
+    inputElement.addEventListener("change", function(event) {
+      const files = event.target.files;
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const imageURL = URL.createObjectURL(file);
+
+        const imgElement = document.createElement("img");
+        imgElement.src = imageURL;
+        imgElement.classList.add("preview-image");
+
+        imagePreview.appendChild(imgElement);
+      }
+    });
+  </script>
+</body>
+</html>

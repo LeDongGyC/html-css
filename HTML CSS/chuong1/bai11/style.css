@@ -1,0 +1,6 @@
+.dropdown__selected{
+    background-color: red;
+    width: 151px;
+    height: 21px;
+    border-top: 2px solid black;
+}

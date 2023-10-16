@@ -1,0 +1,11 @@
+input[type = "file"]{
+    display: none;
+}
+label {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #c0392b;
+    padding: 15px 40px;
+    letter-spacing: ;
+}

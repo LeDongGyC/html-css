@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+  }
+html {
+    font-size: 62.5%;
+  }
+.header{
+    background-color: red;
+    height: 200px;
+    display: flex;
+    &__logo{
+      // max-height: 100%;
+      // max-width: 10px;
+      overflow: hidden;
+
+    }
+    &__name{
+      margin-left: auto;
+
+    }
+}
+img{
+  width: 100%;
+  h100
+  object-fit: cover;
+}

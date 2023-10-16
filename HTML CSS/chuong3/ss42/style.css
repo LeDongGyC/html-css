@@ -1,0 +1,17 @@
+html{
+    font-size: 62.5%;
+}
+.boxed{
+    width: 20rem;
+    height: 20rem;
+    background-color: red;
+    /* transition:  background-color 2s , width 2s linear ; */
+    transition: all 10s;
+}
+.boxed:hover{
+    width: 100vw;
+    background-color: blue;
+}
+.text{
+    opacity: 0;
+}

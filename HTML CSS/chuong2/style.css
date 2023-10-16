@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box ;
+}
+html{
+    font-size: 62.5%;
+}
+p{
+    color: rgba(rgb(93, 0, 255), green, blue, 0.4);
+    color: blue;
+}
+.background{
+    background-color: #fff;
+    background-color: gray;
+    min-width: 100px;
+    min-height: 100px;
+    /* ẩn nội dung thẻ p khi bị tràn ra ngoài */
+    /* overflow: hidden;  */
+    /* tương ứng:
+    overflow-x: hidden;
+    overflow-y:hidden; */
+
+
+}
+/* bai17 */
+.background2{
+    /* background-image: url("https://images.unsplash.com/photo-1650708087761-e0b2195de08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60");
+    width: 100%;
+    height: 1000px;
+    background-position: center center;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */ 
+    /* width: 100%; */
+    /* height: 1000px; */
+    width: 100vw;
+    height: 100vh;
+    background: red url("https://images.unsplash.com/photo-1650708087761-e0b2195de08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60") no-repeat center center / cover fixed ;
+}
+/* bai19 20  */
+.em{
+    width: 10em;
+    height: 10em;
+    background-color: red;
+    border: 5px solid black ;
+    border-radius: 50%;
+}
+.rem{
+    width: 10rem;
+    height: 10rem;
+    background-color: blue;
+}
+.margin{
+    width: 4rem;
+    height: 4rem;
+   background-color: red;
+   border: 5px solid blue; 
+   margin: 20px;
+   margin-left: auto;
+   margin-right: auto;
+}
+/* bai22 */
+.padding{
+    width: 5rem;
+    height: 5rem;
+    background-color: blue;
+    padding: 1rem;
+    overflow-y: auto;  
+}
+.boxed{
+    width: 10rem;
+    height: 10rem;
+    background-color: blue;
+    border: 5px solid black;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+/* bai24 */
+a{
+    color: white;
+    text-decoration: none; /*không còn gạch dưới đường link của thẻ a*/
+    width: 10rem;
+    height: 10rem;
+    background-color: black;
+    padding: 1rem;
+    display: block; /* khắc phục hạn chế của thẻ inline CSS*/
+    display: none;
+}
+/* bai25 */
+.text{
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 500;
+    /* ---BAI26--- */
+    /* text-align: left;
+    max-width: 300px; */
+    /* hien thi dau ... tren 1 hang khi chu vuot qua kich thuc trang web */
+    /* white-space: nowrap; */
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+    /* hiển thị dấu ... trên dòng thứ 3 */
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    word-break: break-all;
+}
+/* BAI27 */
+img{
+    display: block;
+    max-width: 100%;
+}
+.image{
+    /* display: inline-block; */
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+/* .img__wrap{
+    text-align: center;
+} */

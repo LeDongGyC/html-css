@@ -1,0 +1,23 @@
+html{
+    font-size: 62.5%;
+}
+*{
+    box-sizing: border-box;
+}
+.box{
+    width: 10rem;
+    height: 10rem;
+    background-image: linear-gradient(to left top, red,yellow)
+}
+.text{
+    margin: 2rem;
+    background-image: linear-gradient(to left top, red,blue);
+    display:inline-block;
+    font-size: 25px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+h3:active {
+    color: brown;
+}

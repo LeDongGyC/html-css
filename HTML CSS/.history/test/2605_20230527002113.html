@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #imagePreview {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .previewImage {
+            
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        .previewImage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .previewImage .deleteButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: red;
+            font-weight: bold;
+            padding: 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="fileInput" multiple>
+    <div id="imagePreview"></div>
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function (event) {
+            var files = event.target.files;
+
+            // Lặp qua các tệp được chọn
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+
+                // Kiểm tra xem tệp có đúng là ảnh không
+                if (file.type.match("image.*")) {
+                    var reader = new FileReader();
+
+                    // Đọc nội dung của tệp ảnh và tạo một thẻ div chứa ảnh
+                    reader.onload = function (e) {
+                        var imageDiv = document.createElement("div");
+                        imageDiv.classList.add("previewImage");
+
+                        var image = document.createElement("img");
+                        image.src = e.target.result;
+                        imageDiv.appendChild(image);
+
+                        // Tạo nút xóa ảnh
+                        var deleteButton = document.createElement("div");
+                        deleteButton.classList.add("deleteButton");
+                        deleteButton.innerHTML = "x";
+
+                        // Lắng nghe sự kiện khi người dùng click vào nút xóa ảnh
+                        deleteButton.addEventListener("click", function () {
+                            this.parentNode.remove();
+                        });
+
+                        imageDiv.appendChild(deleteButton);
+
+                        document.getElementById("imagePreview").appendChild(imageDiv);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

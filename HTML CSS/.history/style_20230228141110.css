@@ -1,0 +1,8 @@
+.header{
+    background-color: red;
+    position: relative;
+    height: 1000px;
+}
+.header .header__logo{
+    position: absolute;
+}

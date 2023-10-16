@@ -1,0 +1,40 @@
+html {
+  font-size: 62.5%;
+}
+
+.header-top {
+  color: red;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+.header-top:hover {
+  color: yellow;
+  font-size: 20px;
+}
+.header-content {
+  font-size: 5rem;
+}
+
+.boxed {
+  width: 10rem;
+  height: 10rem;
+  background-color: red;
+}
+
+.container {
+  width: 100%;
+  height: 30rem;
+  background: black;
+  position: relative;
+}
+.container .boxing {
+  width: 10rem;
+  height: 10rem;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=style.css.map */

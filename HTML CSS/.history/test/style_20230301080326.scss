@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+  }
+html {
+    font-size: 62.5%;
+  }
+.header{
+    background-color: red;
+    height: ;
+    display: flex;
+    position: relative;
+    align-items: center;
+    &__logo{
+      max-height: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      // position: absolute;
+      // top: 50%;
+      // transform: translateY(-50%);
+    }
+    &__name{
+      margin-left: auto;
+    }
+}
+img{
+  max-width: 50%;
+  height: 50%;
+  object-fit: cover;
+}

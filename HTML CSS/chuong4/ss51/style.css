@@ -1,0 +1,27 @@
+html{
+    font-size: 62.5%;
+}
+.bar{
+    width: 50rem;
+    height: 2rem;
+    background-color: #ccc;
+    border-radius: 2rem;
+    margin: 5rem auto 0 ;
+    position: relative;
+}
+.bar-child{
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    border-radius: inherit;
+}
+.bar-circle{
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    position: absolute;
+    border-radius: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

@@ -1,0 +1,11 @@
+.header{
+    background-color: red;
+    position: relative;
+    height: 200px;
+}
+.header .header__logo{
+    position: absolute;
+    max-width: 75px;
+    top: 50px;
+    transform: t;
+}

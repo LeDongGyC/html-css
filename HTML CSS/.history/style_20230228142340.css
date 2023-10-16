@@ -1,0 +1,18 @@
+html{
+    font-size: 62.5%;
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    border: ;
+    position: relative;
+    height: 10rem;
+}
+.header .header__logo{
+    position: absolute;
+    max-width: 50px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}

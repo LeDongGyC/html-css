@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chọn, hiển thị và xóa nhiều ảnh</title>
+  <style>
+    #file-input-container {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    #file-input-container input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    #file-input-container .upload-icon {
+      margin-right: 8px;
+    }
+    #image-preview {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .preview-image {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      position: relative;
+    }
+    .preview-image.selected {
+      border: 2px solid blue;
+    }
+    .delete-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .loading-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top-color: #333;
+      border-radius: 50%;
+      animation: spin 1s infinite ease-in-out;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="file-input-container">
+    <span class="upload-icon">&#x21AA;</span>
+    <input type="file" id="image-input" multiple>
+  </div>
+  <div id="image-preview"></div>
+  <button id="delete-selected-button">Xóa đã chọn</button>
+
+  <script>
+    const inputElement = document.getElementById("image-input");
+    const imagePreview = document.getElementById("image-preview");
+    const deleteSelectedButton = document.getElementById("delete-selected-button");
+    const fileInputContainer = document.getElementById("file-input-container");
+    const loadingOverlay = document.createElement("div");
+    loadingOverlay.classList.add("loading-overlay");
+    const loadingSpinner = document.createElement("div");
+    loadingSpinner.classList.add("loading-spinner");
+    loadingOverlay.appendChild(loadingSpinner);
+
+    fileInputContainer.appendChild(loadingOverlay);
+
+    inputElement.addEventListener("change", function(event) {
+      const files = event.target.files;
+
+      showLoadingOverlay();
+
+      setTimeout(function() {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const imageURL = URL.createObjectURL(file);
+
+          const imgElement = document.createElement("img");
+          imgElement.src = imageURL;
+          imgElement.classList.add("preview-image");
+
+          imgElement.addEventListener("click", function() {
+            imgElement.classList.toggle("selected");
+          });
+
+          const deleteButton = document.createElement("button");
+          deleteButton.innerText = "Xóa";
+          deleteButton.classList.add("delete-button");
+
+          const imageContainer = document.createElement("div");
+          imageContainer.appendChild(imgElement);
+          imageContainer.appendChild(deleteButton);
+
+          imagePreview.appendChild(imageContainer);
+        }
+
+        hideLoadingOverlay();
+      }, 2000);
+    });
+
+    deleteSelectedButton.addEventListener("click", function() {
+      const selectedImages = document.querySelectorAll(".preview-image.selected");
+
+      selectedImages.forEach(function(image) {
+        const imageContainer = image.parentNode;
+        imageContainer.remove();
+      });
+    });
+
+    function showLoadingOverlay() {
+      loadingOverlay.classList.add("show");
+    }
+
+    function hideLoadingOverlay() {
+      loadingOverlay.classList.remove("show");
+    }
+  </script>
+</body>
+</html>

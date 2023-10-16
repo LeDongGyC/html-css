@@ -1,0 +1,141 @@
+.title{
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    padding-left: 100px;
+}
+.title::before{
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    border-radius: 1rem;
+    position: absolute;
+    top:50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+.line{
+    text-align: center;
+    position: relative;
+}
+.line::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.line-text{
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+}
+.line2{
+    text-align: center;
+    /* border: 2px solid black ; */
+    position: relative;
+}
+.line2:after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.line-text2{
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+}
+.box-line{
+    width: 100%;
+    height: 50rem;
+   background-color: white; 
+    border: 2px solid black;
+    position: relative;
+    text-align: center;
+}
+.box-line::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    position: absolute;
+    left: 50%;
+    top:-2px;
+    transform: translateX(-50%);
+}
+.box-line-content{
+    display: inline-block;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    top: -19px;
+    left: 0px;
+}
+.icon{
+    width: 5rem;
+    height: 5rem;
+    color: blue;
+    position: relative;
+    margin: 5rem auto;
+}
+.icon::after{
+    content: "";
+    background-color: currentColor;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.icon-user{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.effect{
+    text-decoration: none;
+    display: inline-block;
+    padding: 2rem ;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    margin: 5rem;
+    transition: all 0.25s linear;
+    position: relative;
+    z-index: 1;
+}
+.effect::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: blue;
+    z-index: -1;
+    transition: all 0.25s linear;
+}
+.effect:hover::after{
+    width: 100%;
+}
+.effect:hover{
+    color:white
+}

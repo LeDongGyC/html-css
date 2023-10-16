@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function validateVietnameseName(name) {
+  const vietnameseNamePattern =/^([a-zA-Z][a-zA-Z0-9_\.\-]*)+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+  return vietnameseNamePattern.test(name);
+}
+
+// Example usage
+const name1 = "aa111@g@mail.com";
+// const name2 = "John Doe";
+
+console.log(`${name1} is a valid Vietnamese name: ${validateVietnameseName(name1)}`);
+// console.log(`${name2} is a valid Vietnamese name: ${validateVietnameseName(name2)}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.header {
+  background-color: red;
+  height: 200px;
+}
+.header__logo {
+  max-height: 10%;
+}
+.header__name {
+  margin-left: auto;
+  
+}
+
+/*# sourceMappingURL=style.css.map */

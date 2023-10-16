@@ -1,0 +1,18 @@
+html{
+    fz
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    background-color: red;
+    position: relative;
+    height: 1rem;
+}
+.header .header__logo{
+    position: absolute;
+    max-width: 75px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
